@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmassiah <rmassiah@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:24:30 by rmassiah          #+#    #+#             */
-/*   Updated: 2022/11/07 19:24:36 by rmassiah         ###   ########.fr       */
+/*   Created: 2022/11/07 19:20:39 by rmassiah          #+#    #+#             */
+/*   Updated: 2022/11/07 19:20:43 by rmassiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(t_node **list_a, int size)
+int	check_int(char **argv)
 {
-	t_node	*list_b;
+	int	i;
 
-	list_b = NULL;
-	if (size == 2)
+	i = 0;
+	while (argv[i])
 	{
-		if (!is_sorted(list_a, size))
-			sa(list_a);
-		return (0);
+		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
+			return (1);
+		i++;
 	}
-	else if (size == 3)
-	{
-		if (!is_sorted(list_a, size))
-			sort_three(list_a);
-		return (0);
-	}
-	else if (size > 3 && size < 6)
-		sort_five(list_a, &list_b, size);
-	else if (size > 5)
-		radix_sort(list_a, list_b, size);
 	return (0);
 }

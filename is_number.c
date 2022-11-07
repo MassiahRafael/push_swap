@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   is_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmassiah <rmassiah@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:24:30 by rmassiah          #+#    #+#             */
-/*   Updated: 2022/11/07 19:24:36 by rmassiah         ###   ########.fr       */
+/*   Created: 2022/11/07 19:23:05 by rmassiah          #+#    #+#             */
+/*   Updated: 2022/11/07 19:23:12 by rmassiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(t_node **list_a, int size)
+int	is_number(char *num)
 {
-	t_node	*list_b;
+	int	count;
 
-	list_b = NULL;
-	if (size == 2)
-	{
-		if (!is_sorted(list_a, size))
-			sa(list_a);
+	count = 0;
+	if ((num[count] == '-' || num[count] == '+') && ft_isdigit(num[count + 1]))
+		count++;
+	while (num[count] && ft_isdigit(num[count]))
+		count++;
+	if (num[count] != '\0' && !ft_isdigit(num[count]))
 		return (0);
-	}
-	else if (size == 3)
-	{
-		if (!is_sorted(list_a, size))
-			sort_three(list_a);
+	return (1);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	else
 		return (0);
-	}
-	else if (size > 3 && size < 6)
-		sort_five(list_a, &list_b, size);
-	else if (size > 5)
-		radix_sort(list_a, list_b, size);
-	return (0);
 }

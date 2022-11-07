@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmassiah <rmassiah@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:24:30 by rmassiah          #+#    #+#             */
-/*   Updated: 2022/11/07 19:24:36 by rmassiah         ###   ########.fr       */
+/*   Created: 2022/11/07 19:20:16 by rmassiah          #+#    #+#             */
+/*   Updated: 2022/11/07 19:20:20 by rmassiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(t_node **list_a, int size)
+int	check_input(char **argv)
 {
-	t_node	*list_b;
+	int	i;
 
-	list_b = NULL;
-	if (size == 2)
+	i = 0;
+	while (argv[i])
 	{
-		if (!is_sorted(list_a, size))
-			sa(list_a);
-		return (0);
+		if (!is_number(argv[i]))
+			return (1);
+		i++;
 	}
-	else if (size == 3)
-	{
-		if (!is_sorted(list_a, size))
-			sort_three(list_a);
-		return (0);
-	}
-	else if (size > 3 && size < 6)
-		sort_five(list_a, &list_b, size);
-	else if (size > 5)
-		radix_sort(list_a, list_b, size);
+	check_zero (argv);
+	if (check_nbrdup(argv))
+		return (1);
+	if (check_int(argv))
+		return (1);
 	return (0);
 }

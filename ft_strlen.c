@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmassiah <rmassiah@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:24:30 by rmassiah          #+#    #+#             */
-/*   Updated: 2022/11/07 19:24:36 by rmassiah         ###   ########.fr       */
+/*   Created: 2022/11/07 19:18:22 by rmassiah          #+#    #+#             */
+/*   Updated: 2022/11/07 19:18:26 by rmassiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(t_node **list_a, int size)
+size_t	ft_strlen(const char *str)
 {
-	t_node	*list_b;
+	size_t	i;
 
-	list_b = NULL;
-	if (size == 2)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (!is_sorted(list_a, size))
-			sa(list_a);
-		return (0);
+		i++;
 	}
-	else if (size == 3)
-	{
-		if (!is_sorted(list_a, size))
-			sort_three(list_a);
-		return (0);
-	}
-	else if (size > 3 && size < 6)
-		sort_five(list_a, &list_b, size);
-	else if (size > 5)
-		radix_sort(list_a, list_b, size);
-	return (0);
+	return (i);
 }

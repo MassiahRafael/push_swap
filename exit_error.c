@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmassiah <rmassiah@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:24:30 by rmassiah          #+#    #+#             */
-/*   Updated: 2022/11/07 19:24:36 by rmassiah         ###   ########.fr       */
+/*   Created: 2022/11/07 19:21:41 by rmassiah          #+#    #+#             */
+/*   Updated: 2022/11/07 19:21:45 by rmassiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(t_node **list_a, int size)
+void	exit_error(t_node **stack_a)
 {
-	t_node	*list_b;
-
-	list_b = NULL;
-	if (size == 2)
-	{
-		if (!is_sorted(list_a, size))
-			sa(list_a);
-		return (0);
-	}
-	else if (size == 3)
-	{
-		if (!is_sorted(list_a, size))
-			sort_three(list_a);
-		return (0);
-	}
-	else if (size > 3 && size < 6)
-		sort_five(list_a, &list_b, size);
-	else if (size > 5)
-		radix_sort(list_a, list_b, size);
-	return (0);
+	if (stack_a == NULL || *stack_a != NULL)
+		free_list(stack_a);
+	write(2, "Error\n", 6);
+	exit (1);
 }

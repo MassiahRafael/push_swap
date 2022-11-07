@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_zero.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmassiah <rmassiah@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:24:30 by rmassiah          #+#    #+#             */
-/*   Updated: 2022/11/07 19:24:36 by rmassiah         ###   ########.fr       */
+/*   Created: 2022/11/07 19:21:14 by rmassiah          #+#    #+#             */
+/*   Updated: 2022/11/07 19:21:26 by rmassiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(t_node **list_a, int size)
+void	check_zero(char **argv)
 {
-	t_node	*list_b;
+	int	i;
+	int	j;
 
-	list_b = NULL;
-	if (size == 2)
+	i = 0;
+	while (argv[i])
 	{
-		if (!is_sorted(list_a, size))
-			sa(list_a);
-		return (0);
+		j = 0;
+		while (argv[i][j])
+		{
+			if (argv[i][j] == '+' || argv[i][j] == '-')
+				j++;
+			else if (argv[i][j] == '0')
+				j++;
+			else if (argv[i][j] == '\0')
+				argv[i] = "0";
+			else
+				j++;
+		}
+		i++;
 	}
-	else if (size == 3)
-	{
-		if (!is_sorted(list_a, size))
-			sort_three(list_a);
-		return (0);
-	}
-	else if (size > 3 && size < 6)
-		sort_five(list_a, &list_b, size);
-	else if (size > 5)
-		radix_sort(list_a, list_b, size);
-	return (0);
 }

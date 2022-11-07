@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmassiah <rmassiah@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:24:30 by rmassiah          #+#    #+#             */
-/*   Updated: 2022/11/07 19:24:36 by rmassiah         ###   ########.fr       */
+/*   Created: 2022/11/07 19:24:05 by rmassiah          #+#    #+#             */
+/*   Updated: 2022/11/07 19:24:11 by rmassiah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(t_node **list_a, int size)
+void	push(t_node **doador, t_node **receptor)
 {
-	t_node	*list_b;
+	t_node	*temp;
 
-	list_b = NULL;
-	if (size == 2)
-	{
-		if (!is_sorted(list_a, size))
-			sa(list_a);
-		return (0);
-	}
-	else if (size == 3)
-	{
-		if (!is_sorted(list_a, size))
-			sort_three(list_a);
-		return (0);
-	}
-	else if (size > 3 && size < 6)
-		sort_five(list_a, &list_b, size);
-	else if (size > 5)
-		radix_sort(list_a, list_b, size);
-	return (0);
+	temp = *doador;
+	*doador = (*doador)->next;
+	temp->next = *receptor;
+	*receptor = temp;
+}
+
+void	pa(t_node **root, t_node **root_b)
+{
+	push(root_b, root);
+	write(1, "pa\n", 3);
+}
+
+void	pb(t_node **root, t_node **root_b)
+{
+	push(root, root_b);
+	write(1, "pb\n", 3);
 }
