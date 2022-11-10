@@ -67,11 +67,9 @@ void	radix_sort(t_node **list_a, t_node *list_b, int size)
 {
 	int	max_bits;
 	int	bit;
-	int	rounds;
 	int	count;
 
 	max_bits = get_bits(list_a, size);
-	rounds = 0;
 	bit = 0;
 	while (bit < max_bits)
 	{

@@ -35,10 +35,8 @@ int	check_nbrdup(char **argv)
 int	check_string(const char *s1, const char *s2)
 {
 	int	s1_index;
-	int	s2_index;
 
 	s1_index = 0;
-	s2_index = 0;
 	if (s1[s1_index] == '+')
 	{
 		if (s2[0] != '+')

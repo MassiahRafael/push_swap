@@ -30,7 +30,7 @@ void	sort_five(t_node **list_a, t_node **list_b, int size)
 	}
 	if (!is_sorted(list_a, 3))
 		sort_three(list_a);
-	else if (is_sorted(list_b, size - 3))
+	if (is_sorted(list_b, size - 3))
 		sb(list_b);
 	while (size - 3)
 	{

@@ -40,7 +40,11 @@ void	print_root(t_node *root)
 
 	curr = root;
 	while (curr->next != NULL)
+	{
+		printf("value: %d\n", curr->value);
 		curr = curr->next;
+	}
+	printf("value: %d\n", curr->value);
 }
 
 int	get_index(char **argv, int num)
