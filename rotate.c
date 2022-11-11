@@ -15,15 +15,15 @@
 void	rotate(t_node **root)
 {
 	t_node	*temp;
-	t_node	*contador;
+	t_node	*counter;
 
-	contador = *root;
-	while (contador->next != NULL)
-		contador = contador->next;
+	counter = *root;
+	while (counter->next != NULL)
+		counter = counter->next;
 	temp = *root;
 	*root = (*root)->next;
 	temp->next = NULL;
-	contador->next = temp;
+	counter->next = temp;
 }
 
 void	ra(t_node **root)

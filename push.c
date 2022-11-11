@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void	push(t_node **doador, t_node **receptor)
+void	push(t_node **giver, t_node **receiver)
 {
 	t_node	*temp;
 
-	temp = *doador;
-	*doador = (*doador)->next;
-	temp->next = *receptor;
-	*receptor = temp;
+	temp = *giver;
+	*giver = (*giver)->next;
+	temp->next = *receiver;
+	*receiver = temp;
 }
 
 void	pa(t_node **root, t_node **root_b)
